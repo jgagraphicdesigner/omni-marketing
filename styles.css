@@ -1562,6 +1562,49 @@ body::before {
   }
 }
 
+@media (max-width: 560px) {
+  .nav-wrap {
+    width: min(calc(100% - 24px), 366px);
+    margin-left: 12px;
+    margin-right: auto;
+  }
+
+  .section {
+    width: min(calc(100% - 28px), 362px);
+    margin-left: 14px;
+    margin-right: auto;
+  }
+
+  .hero-copy,
+  .page-hero {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.05rem, 8vw, 2.3rem);
+  }
+
+  .hero-copy p,
+  .page-hero p,
+  .hero-proof,
+  .hero-actions {
+    max-width: 340px;
+  }
+
+  .hero-actions {
+    display: grid;
+    width: 100%;
+  }
+
+  .hero-actions .button,
+  .button {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-copy,
   .page-hero {
