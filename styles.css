@@ -1985,7 +1985,7 @@ body::before {
   min-height: 330px;
   padding: 70px 0 48px;
   display: grid;
-  grid-template-columns: minmax(280px, 1.28fr) minmax(160px, 0.72fr) minmax(190px, 0.78fr) minmax(230px, 0.9fr);
+  grid-template-columns: minmax(280px, 1.12fr) minmax(150px, 0.62fr) minmax(180px, 0.68fr) minmax(320px, 1fr);
   align-items: start;
   gap: 0;
   color: rgba(255, 255, 255, 0.82);
@@ -1994,7 +1994,7 @@ body::before {
 .footer-brand-block,
 .footer-column {
   min-height: 210px;
-  padding: 0 46px;
+  padding: 0 40px;
 }
 
 .footer-brand-block {
@@ -2054,7 +2054,8 @@ body::before {
 }
 
 .footer-contact a:first-of-type {
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  font-size: 0.95rem;
 }
 
 .footer-bottom {
@@ -2082,6 +2083,11 @@ body::before {
   .footer-column {
     min-height: 190px;
     padding: 0 32px 34px;
+  }
+
+  .footer-contact a:first-of-type {
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .footer-brand-block {
