@@ -1450,6 +1450,53 @@ body::before {
   }
 }
 
+@media (max-width: 900px) {
+  .nav-wrap {
+    width: min(calc(100% - 24px), var(--max));
+    padding: 0 12px;
+  }
+
+  .brand img {
+    width: 180px;
+    height: 56px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    top: 92px;
+    display: none;
+    padding: 14px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: rgba(0, 0, 0, 0.96);
+  }
+
+  .site-nav.is-open {
+    display: grid;
+  }
+
+  .site-nav a {
+    padding: 13px 12px;
+  }
+
+  .hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.55rem, 7.2vw, 3.85rem);
+    line-height: 1.04;
+  }
+
+  .hero-copy p,
+  .hero-proof {
+    max-width: min(100%, 38rem);
+  }
+}
+
 @media (max-width: 760px) {
   .nav-wrap {
     width: min(calc(100% - 24px), var(--max));
@@ -1470,8 +1517,8 @@ body::before {
   }
 
   .hero h1 {
-    max-width: 100%;
-    font-size: clamp(2.3rem, 8.2vw, 2.85rem);
+    max-width: 11ch;
+    font-size: clamp(2.2rem, 8.2vw, 2.75rem);
     line-height: 1.08;
   }
 
@@ -1518,12 +1565,14 @@ body::before {
 @media (max-width: 480px) {
   .hero-copy,
   .page-hero {
+    width: 100%;
     max-width: 350px;
   }
 
-  h1 {
+  h1,
+  .hero h1 {
     max-width: 350px;
-    font-size: 2.08rem;
+    font-size: clamp(2rem, 9vw, 2.16rem);
   }
 
   .hero-copy p,
@@ -1534,7 +1583,7 @@ body::before {
 
   .hero-actions .button,
   .button {
-    max-width: 340px;
+    max-width: 100%;
   }
 
   .system-board,
