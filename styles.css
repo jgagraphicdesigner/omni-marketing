@@ -1528,8 +1528,8 @@ body::before {
 
 .system-visual {
   position: absolute;
-  left: 8%;
-  right: 0;
+  left: 2%;
+  right: 8%;
   top: 26%;
   z-index: 1;
   min-height: 280px;
@@ -1561,7 +1561,7 @@ body::before {
 .system-visual-grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   z-index: 1;
 }
@@ -1623,14 +1623,14 @@ body::before {
 }
 
 .hero-media figcaption {
-  left: 8%;
-  right: 0;
+  left: 2%;
+  right: 8%;
   bottom: 8%;
   background: rgba(0, 0, 0, 0.86);
 }
 
 .media-stats {
-  left: 8%;
+  left: 2%;
   top: 18%;
 }
 
