@@ -1529,7 +1529,7 @@ body::before {
 .system-visual {
   position: absolute;
   left: 2%;
-  right: 8%;
+  right: 16%;
   top: 26%;
   z-index: 1;
   min-height: 280px;
@@ -1624,7 +1624,7 @@ body::before {
 
 .hero-media figcaption {
   left: 2%;
-  right: 8%;
+  right: 16%;
   bottom: 8%;
   background: rgba(0, 0, 0, 0.86);
 }
