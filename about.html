@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About us | Omni Marketing</title>
     <meta name="description" content="Learn how Omni Marketing connects growth strategy, marketing systems, creative content and reporting into practical execution.">
-    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="styles.css?v=13">
   </head>
   <body>
     <div class="page-shell">
@@ -39,8 +39,13 @@
               <span class="small-label">Our point of view</span>
               <h2>Great marketing needs a system behind the message.</h2>
               <p>Campaigns perform better when positioning, content, funnels, CRM and sales follow-up are designed together. Omni works where creative strategy and marketing operations meet.</p>
-              <figure class="image-panel about-image">
-                <img src="assets/omni-brochure-showcase.jpg" alt="Omni Marketing branded creative collateral and social media design examples" loading="lazy">
+              <figure class="image-panel about-image visual-card" aria-label="Connected marketing operations visual">
+                <div class="visual-matrix" aria-hidden="true">
+                  <span>Message</span>
+                  <span>Funnel</span>
+                  <span>CRM</span>
+                  <span>Analytics</span>
+                </div>
               </figure>
               <div class="metric-rail">
                 <div class="metric"><strong>01</strong><span>Clarify the offer</span></div>
@@ -113,11 +118,20 @@
 
       <footer class="site-footer">
         <div class="footer-wrap">
-          <strong>Omni Marketing Online</strong>
-          <span>Creative Content Solutions for connected growth systems.</span>
+          <a class="footer-brand" href="index.html" aria-label="Omni Marketing home">
+            <img class="footer-logo" src="assets/omni-logo.svg" data-logo-png="assets/omni-logo-black.png" alt="Omni Marketing Online">
+            <span>Creative Content Solutions for connected growth systems.</span>
+          </a>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="about.html">About us</a>
+            <a href="services.html">Services</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <a class="footer-cta" href="contact.html">Start a conversation</a>
         </div>
       </footer>
     </div>
-    <script src="script.js?v=12"></script>
+    <script src="script.js?v=13"></script>
   </body>
 </html>
