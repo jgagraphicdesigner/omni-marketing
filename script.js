@@ -1,6 +1,17 @@
 const menuButton = document.querySelector("[data-menu-toggle]");
 const siteNav = document.querySelector("[data-site-nav]");
 
+document.querySelectorAll("[data-logo-png]").forEach((logo) => {
+  const pngSource = logo.getAttribute("data-logo-png");
+  if (!pngSource) return;
+
+  const testImage = new Image();
+  testImage.onload = () => {
+    logo.src = pngSource;
+  };
+  testImage.src = pngSource;
+});
+
 if (menuButton && siteNav) {
   menuButton.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("is-open");
