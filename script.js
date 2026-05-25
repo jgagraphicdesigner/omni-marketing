@@ -79,7 +79,7 @@ if (growthCanvas && !reducedMotion.matches) {
 
     const gradient = context.createLinearGradient(0, 0, rect.width, rect.height);
     gradient.addColorStop(0, "rgba(255, 219, 111, 0.72)");
-    gradient.addColorStop(0.48, "rgba(15, 178, 134, 0.36)");
+    gradient.addColorStop(0.48, "rgba(230, 185, 65, 0.3)");
     gradient.addColorStop(1, "rgba(230, 185, 65, 0.52)");
 
     particles.forEach((particle) => {
