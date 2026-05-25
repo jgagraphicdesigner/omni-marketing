@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+  <title id="title">Omni Marketing Online logo</title>
+  <desc id="desc">A gold Omni mark with Omni Marketing Online and Creative Content Solutions text.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff2a7"/>
+      <stop offset="0.24" stop-color="#f8d24c"/>
+      <stop offset="0.58" stop-color="#bd8424"/>
+      <stop offset="1" stop-color="#ffe177"/>
+    </linearGradient>
+    <linearGradient id="deepGold" x1="0" x2="1">
+      <stop offset="0" stop-color="#775011"/>
+      <stop offset="0.5" stop-color="#f6c743"/>
+      <stop offset="1" stop-color="#875f18"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="720" height="220" fill="none"/>
+  <g filter="url(#softGlow)">
+    <circle cx="145" cy="78" r="48" fill="url(#gold)"/>
+    <path d="M210 42 L310 102 L410 42 L410 92 L310 150 L210 92 Z" fill="url(#gold)"/>
+    <path d="M444 42 L548 102 L548 42 L604 78 L548 114 L548 154 L444 94 Z" fill="url(#deepGold)"/>
+    <circle cx="600" cy="78" r="48" fill="url(#gold)"/>
+    <path d="M204 42 L204 134 M418 42 L418 134" stroke="#60410d" stroke-width="7" opacity=".35"/>
+  </g>
+  <g fill="url(#gold)" font-family="Montserrat, Arial, sans-serif" text-anchor="middle">
+    <text x="360" y="174" font-size="29" font-weight="800">OMNI MARKETING ONLINE</text>
+    <text x="360" y="201" font-size="15" font-weight="700" fill="#f4f1e6">CREATIVE CONTENT SOLUTIONS</text>
+  </g>
+</svg>
