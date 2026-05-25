@@ -1,9 +1,9 @@
 :root {
   color-scheme: dark;
   --ink: #050705;
-  --forest: #06251e;
-  --forest-2: #0a3f32;
-  --green: #0fb286;
+  --forest: #080808;
+  --forest-2: #15110a;
+  --green: #e6b941;
   --gold: #e6b941;
   --gold-soft: #ffdb6f;
   --paper: #f7f5ee;
@@ -32,8 +32,8 @@ body {
   margin: 0;
   color: var(--white);
   background:
-    radial-gradient(circle at 14% 4%, rgba(15, 178, 134, 0.18), transparent 28rem),
-    linear-gradient(135deg, var(--ink) 0%, #031611 46%, var(--forest) 100%);
+    radial-gradient(circle at 14% 4%, rgba(230, 185, 65, 0.12), transparent 28rem),
+    linear-gradient(135deg, #000 0%, #030303 46%, var(--forest) 100%);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
   letter-spacing: 0;
@@ -133,8 +133,9 @@ h3 {
   width: 208px;
   height: 62px;
   border-radius: 6px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  background: #000;
 }
 
 .nav-toggle {
@@ -438,7 +439,7 @@ h3 {
   border-radius: var(--radius);
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-    linear-gradient(160deg, rgba(230, 185, 65, 0.15), rgba(15, 178, 134, 0.05));
+    linear-gradient(160deg, rgba(230, 185, 65, 0.16), rgba(255, 219, 111, 0.04));
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -468,8 +469,9 @@ h3 {
   width: 280px;
   aspect-ratio: 3.15 / 1;
   border-radius: 6px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  background: #000;
   margin: 0 auto 30px;
 }
 
@@ -556,7 +558,7 @@ h3 {
 }
 
 .service-strip article:nth-child(even) {
-  background: rgba(15, 178, 134, 0.08);
+  background: rgba(230, 185, 65, 0.065);
 }
 
 .service-strip article:last-child {
@@ -840,7 +842,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(15, 178, 134, 0.24), transparent 34%),
+    linear-gradient(135deg, rgba(255, 219, 111, 0.1), transparent 34%),
     linear-gradient(145deg, rgba(230, 185, 65, 0.3), transparent 56%),
     rgba(0, 0, 0, 0.28);
   position: relative;
@@ -961,7 +963,7 @@ textarea:focus {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(230, 185, 65, 0.18), rgba(15, 178, 134, 0.08)),
+    linear-gradient(135deg, rgba(230, 185, 65, 0.18), rgba(255, 219, 111, 0.045)),
     rgba(0, 0, 0, 0.28);
 }
 
@@ -1181,16 +1183,16 @@ textarea:focus {
 /* Cinematic redesign inspired by the provided modern event reference. */
 body {
   background:
-    radial-gradient(circle at 78% 34%, rgba(230, 185, 65, 0.2), transparent 34rem),
-    radial-gradient(circle at 18% 12%, rgba(15, 178, 134, 0.22), transparent 30rem),
-    linear-gradient(135deg, #020403 0%, #051710 46%, #090905 100%);
+    radial-gradient(circle at 76% 30%, rgba(230, 185, 65, 0.2), transparent 32rem),
+    radial-gradient(circle at 10% 9%, rgba(255, 219, 111, 0.075), transparent 24rem),
+    linear-gradient(135deg, #000 0%, #030303 48%, #070604 100%);
 }
 
 body::before {
   background-image:
-    linear-gradient(122deg, transparent 0 18%, rgba(230, 185, 65, 0.1) 18% 19.2%, transparent 19.2% 100%),
-    linear-gradient(118deg, transparent 0 73%, rgba(15, 178, 134, 0.12) 73% 74.2%, transparent 74.2% 100%),
-    radial-gradient(circle at 82% 12%, rgba(230, 185, 65, 0.08), transparent 22rem);
+    linear-gradient(122deg, transparent 0 18%, rgba(230, 185, 65, 0.11) 18% 19.2%, transparent 19.2% 100%),
+    linear-gradient(118deg, transparent 0 73%, rgba(255, 219, 111, 0.06) 73% 74.2%, transparent 74.2% 100%),
+    radial-gradient(circle at 82% 12%, rgba(230, 185, 65, 0.07), transparent 22rem);
 }
 
 .site-header {
@@ -1207,8 +1209,8 @@ body::before {
   border: 1px solid rgba(230, 185, 65, 0.26);
   border-radius: var(--radius);
   background:
-    linear-gradient(105deg, rgba(6, 37, 30, 0.94) 0 34%, rgba(4, 6, 5, 0.82) 34% 72%, rgba(230, 185, 65, 0.2) 72%),
-    rgba(2, 4, 3, 0.7);
+    linear-gradient(105deg, rgba(0, 0, 0, 0.97) 0 40%, rgba(8, 8, 8, 0.88) 40% 72%, rgba(230, 185, 65, 0.2) 72%),
+    rgba(0, 0, 0, 0.72);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
   backdrop-filter: blur(18px);
 }
@@ -1217,6 +1219,8 @@ body::before {
   width: 236px;
   height: 76px;
   box-shadow: none;
+  object-fit: contain;
+  background: #000;
 }
 
 .site-nav {
@@ -1258,9 +1262,9 @@ body::before {
   inset: 102px -16vw 0;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(2, 4, 3, 0.2), rgba(2, 4, 3, 0.78)),
-    url("assets/omni-new-logo.png") center / cover no-repeat;
-  opacity: 0.11;
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)),
+    url("assets/omni-logo-black.png") center / cover no-repeat;
+  opacity: 0.15;
   filter: saturate(1.1) contrast(1.1);
 }
 
@@ -1271,7 +1275,7 @@ body::before {
   z-index: -1;
   width: min(58vw, 860px);
   clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
-  background: linear-gradient(135deg, rgba(230, 185, 65, 0.18), rgba(15, 178, 134, 0.06));
+  background: linear-gradient(135deg, rgba(230, 185, 65, 0.18), rgba(255, 219, 111, 0.045));
 }
 
 .growth-canvas {
@@ -1340,7 +1344,7 @@ body::before {
   border-radius: var(--radius);
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.42)),
-    linear-gradient(135deg, rgba(230, 185, 65, 0.18), rgba(15, 178, 134, 0.08));
+    linear-gradient(135deg, rgba(230, 185, 65, 0.2), rgba(255, 219, 111, 0.045));
   box-shadow: var(--shadow);
 }
 
@@ -1360,7 +1364,7 @@ body::before {
   left: 8%;
   right: 0;
   bottom: 8%;
-  background: rgba(3, 24, 18, 0.86);
+  background: rgba(0, 0, 0, 0.86);
 }
 
 .media-stats {
@@ -1400,7 +1404,7 @@ body::before {
 .service-cloud,
 .contact-form,
 .cta-band {
-  background: rgba(6, 26, 20, 0.62);
+  background: rgba(8, 8, 8, 0.74);
   backdrop-filter: blur(14px);
 }
 
