@@ -21,7 +21,7 @@ if (menuButton && siteNav) {
 }
 
 const revealTargets = document.querySelectorAll(
-  ".section, .feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .image-frame, .image-card, .contact-panel, .contact-form"
+  ".section, .studio-marquee, .studio-metrics article, .feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .image-frame, .image-card, .contact-panel, .contact-form"
 );
 
 if (revealTargets.length) {
@@ -44,6 +44,20 @@ if (revealTargets.length) {
     revealTargets.forEach((target) => revealObserver.observe(target));
   }
 }
+
+const spotlightTargets = document.querySelectorAll(
+  ".feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .contact-panel, .contact-form, .cta-band"
+);
+
+spotlightTargets.forEach((target) => {
+  target.addEventListener("pointermove", (event) => {
+    const rect = target.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    target.style.setProperty("--mouse-x", `${x.toFixed(1)}%`);
+    target.style.setProperty("--mouse-y", `${y.toFixed(1)}%`);
+  });
+});
 
 const growthCanvas = document.querySelector("[data-growth-canvas]");
 
