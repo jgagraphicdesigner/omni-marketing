@@ -131,7 +131,10 @@ h3 {
 
 .brand img {
   width: 208px;
-  height: auto;
+  height: 62px;
+  border-radius: 6px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .nav-toggle {
@@ -291,7 +294,7 @@ h3 {
 .hero-media img {
   object-fit: contain;
   object-position: center;
-  background: #020403;
+  background: #090905;
 }
 
 .hero-media figcaption {
@@ -416,6 +419,10 @@ h3 {
 .system-logo {
   position: relative;
   width: 280px;
+  aspect-ratio: 3.15 / 1;
+  border-radius: 6px;
+  object-fit: cover;
+  object-position: center;
   margin: 0 auto 30px;
 }
 
@@ -935,6 +942,7 @@ textarea:focus {
 
   .brand img {
     width: 170px;
+    height: 50px;
   }
 
   .nav-toggle {
