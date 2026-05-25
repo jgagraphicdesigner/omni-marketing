@@ -1949,3 +1949,181 @@ body::before {
     max-width: 350px;
   }
 }
+
+/* GTEC-inspired full-width footer layout adapted to Omni's black-and-gold brand. */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+  border-top: 1px solid rgba(230, 185, 65, 0.24);
+  background:
+    linear-gradient(105deg, rgba(0, 0, 0, 0.96) 0%, rgba(21, 17, 8, 0.9) 46%, rgba(230, 185, 65, 0.34) 100%),
+    radial-gradient(circle at 8% 20%, rgba(255, 219, 111, 0.14), transparent 24rem),
+    radial-gradient(circle at 94% 16%, rgba(230, 185, 65, 0.18), transparent 30rem),
+    #000;
+  backdrop-filter: none;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(118deg, transparent 0 72%, rgba(255, 219, 111, 0.16) 72% 73%, transparent 73%);
+  background-size: 25% 100%, 100% 100%, auto;
+  opacity: 0.55;
+}
+
+.footer-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 56px), 1240px);
+  margin: 0 auto;
+  min-height: 330px;
+  padding: 70px 0 48px;
+  display: grid;
+  grid-template-columns: minmax(280px, 1.28fr) minmax(160px, 0.72fr) minmax(190px, 0.78fr) minmax(230px, 0.9fr);
+  align-items: start;
+  gap: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.footer-brand-block,
+.footer-column {
+  min-height: 210px;
+  padding: 0 46px;
+}
+
+.footer-brand-block {
+  padding-left: 0;
+}
+
+.footer-column {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.footer-logo {
+  width: 235px;
+  height: 82px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 6px;
+  background: #000;
+}
+
+.footer-brand-block p {
+  max-width: 340px;
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.06rem;
+  line-height: 1.35;
+}
+
+.footer-brand-block p:first-of-type {
+  color: var(--white);
+  font-weight: 900;
+}
+
+.footer-column h2 {
+  margin: 0 0 18px;
+  color: var(--white);
+  font-size: clamp(1.55rem, 2vw, 1.95rem);
+  line-height: 1;
+}
+
+.footer-column a {
+  display: block;
+  width: fit-content;
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.footer-column a:hover {
+  color: var(--gold-soft);
+}
+
+.footer-contact a:first-of-type {
+  overflow-wrap: anywhere;
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 56px), 1240px);
+  margin: 0 auto;
+  padding: 20px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 980px) {
+  .footer-wrap {
+    grid-template-columns: repeat(2, 1fr);
+    min-height: auto;
+    padding-top: 58px;
+  }
+
+  .footer-brand-block,
+  .footer-column {
+    min-height: 190px;
+    padding: 0 32px 34px;
+  }
+
+  .footer-brand-block {
+    padding-left: 0;
+  }
+
+  .footer-column:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .footer-bottom {
+    display: grid;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-wrap {
+    width: min(calc(100% - 32px), 420px);
+    grid-template-columns: 1fr;
+    padding: 48px 0 28px;
+  }
+
+  .footer-brand-block,
+  .footer-column,
+  .footer-column:nth-child(3) {
+    min-height: auto;
+    padding: 0 0 30px;
+    border-left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .footer-column:last-child {
+    border-bottom: 0;
+  }
+
+  .footer-logo {
+    width: 215px;
+    height: 72px;
+  }
+
+  .footer-bottom {
+    width: min(calc(100% - 32px), 420px);
+  }
+}
