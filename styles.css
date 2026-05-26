@@ -4937,3 +4937,99 @@ li,
     animation: none;
   }
 }
+
+/* v26: animated service carousel for the home service-pill band. */
+.studio-marquee {
+  overflow: hidden !important;
+  padding: 10px 0;
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.studio-marquee::before,
+.studio-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 92px;
+  pointer-events: none;
+}
+
+.studio-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(8, 8, 7, 0.98), transparent);
+}
+
+.studio-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(8, 8, 7, 0.98), transparent);
+}
+
+.studio-marquee-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: center;
+  width: max-content !important;
+  min-width: max-content;
+  will-change: transform;
+  animation: studioMarquee 30s linear infinite !important;
+}
+
+.studio-marquee:hover .studio-marquee-track,
+.studio-marquee:focus-within .studio-marquee-track {
+  animation-play-state: paused !important;
+}
+
+.studio-marquee span {
+  flex: 0 0 auto;
+  min-height: 56px;
+  padding: 0 32px !important;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  opacity: 0.92;
+}
+
+.studio-marquee span::after {
+  display: block !important;
+  content: "";
+  position: absolute;
+  right: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--intero-gold-2);
+  box-shadow: 0 0 16px rgba(255, 226, 123, 0.72);
+}
+
+@media (max-width: 700px) {
+  .studio-marquee {
+    padding-block: 8px;
+  }
+
+  .studio-marquee::before,
+  .studio-marquee::after {
+    width: 44px;
+  }
+
+  .studio-marquee-track {
+    animation-duration: 24s !important;
+  }
+
+  .studio-marquee span {
+    min-height: 44px;
+    padding-inline: 20px !important;
+    font-size: 0.66rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
