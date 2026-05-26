@@ -5386,7 +5386,67 @@ li,
     padding-top: 128px !important;
   }
 
+  .modern-hero h1 {
+    max-width: 9.2ch;
+    font-size: 3.15rem;
+    line-height: 1.04;
+  }
+
+  .modern-hero .hero-copy p {
+    max-width: 100%;
+  }
+
   .nav-panel {
     top: 126px;
+  }
+}
+
+/* v28: remove the right-side hero system panel and rebalance the opening copy. */
+.modern-hero {
+  grid-template-columns: minmax(0, 780px) !important;
+  justify-content: start;
+  align-items: end;
+  min-height: min(760px, calc(100svh - 96px));
+}
+
+.modern-hero .hero-copy {
+  max-width: 780px;
+}
+
+.modern-hero .hero-copy p {
+  max-width: 700px;
+}
+
+.modern-hero .hero-proof {
+  max-width: 760px;
+}
+
+@media (max-width: 900px) {
+  .modern-hero {
+    min-height: auto;
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-wrap,
+  .section,
+  .studio-marquee,
+  .studio-metrics {
+    width: min(calc(100% - 28px), 360px) !important;
+    max-width: 360px;
+  }
+
+  .modern-hero h1 {
+    max-width: 9.1ch;
+    font-size: 3.05rem;
+    line-height: 1.04;
+  }
+
+  .modern-hero .hero-copy,
+  .modern-hero .hero-copy p,
+  .modern-hero .hero-actions,
+  .modern-hero .hero-proof {
+    max-width: 100%;
   }
 }
