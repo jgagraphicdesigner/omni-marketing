@@ -7,7 +7,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const servicesMegaMarkup = `
   <div class="mega-grid mega-services-grid">
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="2"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path></svg></span><h3>Strategy &amp; Positioning</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon icon-strategy" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13l-1 5.5L5.5 14l5.5-1 1-5.5 4.5 1.5z"></path></svg></span><h3>Strategy &amp; Positioning</h3></div>
       <ul>
         <li><a href="services.html#strategy">Growth Marketing</a></li>
         <li><a href="services.html#strategy">Marketing Strategy</a></li>
@@ -19,7 +19,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#strategy">All Strategy Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M3 21v-2a4 4 0 0 1 4-4h1"></path><path d="M15 8l5 5-5 5"></path><path d="M10 13h10"></path></svg></span><h3>Acquisition &amp; Media</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon icon-acquisition" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-13a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"></path></svg></span><h3>Acquisition &amp; Media</h3></div>
       <ul>
         <li><a href="services.html#acquisition">Customer Acquisition</a></li>
         <li><a href="services.html#acquisition">Lead Generation</a></li>
@@ -31,7 +31,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#acquisition">All Acquisition Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"></ellipse><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5"></path><path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"></path></svg></span><h3>CRM &amp; Automation</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon icon-automation" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path></svg></span><h3>CRM &amp; Automation</h3></div>
       <ul>
         <li><a href="services.html#automation">CRM Systems</a></li>
         <li><a href="services.html#automation">Go High Level</a></li>
@@ -43,7 +43,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#automation">All CRM Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16l-6 7v5l-4 2v-7L4 5Z"></path><path d="M9 5h6"></path></svg></span><h3>Funnels &amp; Conversion</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon icon-conversion" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path></svg></span><h3>Funnels &amp; Conversion</h3></div>
       <ul>
         <li><a href="services.html#conversion">Funnel Strategy</a></li>
         <li><a href="services.html#conversion">Funnel Optimisation</a></li>
@@ -55,7 +55,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#conversion">All Funnel Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z"></path><path d="M14 7l3 3"></path><path d="M4 20h16"></path></svg></span><h3>Content &amp; Creative</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon icon-content" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg></span><h3>Content &amp; Creative</h3></div>
       <ul>
         <li><a href="services.html#content">Content Strategy</a></li>
         <li><a href="services.html#content">Creative Strategy</a></li>
@@ -67,7 +67,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#content">All Content Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 16v-5"></path><path d="M12 16V8"></path><path d="M16 16v-3"></path><path d="M20 16V6"></path></svg></span><h3>Analytics &amp; Leadership</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon icon-analytics" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path></svg></span><h3>Analytics &amp; Leadership</h3></div>
       <ul>
         <li><a href="services.html#analytics">Marketing Analytics</a></li>
         <li><a href="services.html#analytics">KPI Reporting</a></li>
@@ -164,6 +164,17 @@ document.querySelectorAll(".footer-wrap").forEach((footerWrap) => {
       </a>
       <p>Omni Marketing Online</p>
       <p>Creative Content Solutions for connected growth systems.</p>
+      <div class="footer-social-links">
+        <a href="https://linkedin.com/company/omnimarketingonline" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+        </a>
+        <a href="https://twitter.com/omnimarketingonline" target="_blank" rel="noopener" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.632L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+        </a>
+        <a href="https://instagram.com/omnimarketingonline" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
+        </a>
+      </div>
     </section>
     <nav class="footer-column" aria-label="Footer page navigation">
       <h2>Pages</h2>
