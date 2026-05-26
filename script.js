@@ -1,5 +1,7 @@
 const menuButton = document.querySelector("[data-menu-toggle]");
 const siteNav = document.querySelector("[data-site-nav]");
+const navDropdowns = document.querySelectorAll("[data-nav-dropdown]");
+const desktopNav = window.matchMedia("(min-width: 901px)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 document.querySelectorAll("[data-logo-png]").forEach((logo) => {
@@ -19,6 +21,49 @@ if (menuButton && siteNav) {
     menuButton.setAttribute("aria-expanded", String(isOpen));
   });
 }
+
+const closeNavDropdowns = (exception) => {
+  navDropdowns.forEach((dropdown) => {
+    if (dropdown !== exception) {
+      dropdown.open = false;
+    }
+  });
+};
+
+navDropdowns.forEach((dropdown) => {
+  let closeTimer = 0;
+
+  dropdown.addEventListener("toggle", () => {
+    if (dropdown.open) {
+      closeNavDropdowns(dropdown);
+    }
+  });
+
+  dropdown.addEventListener("mouseenter", () => {
+    if (!desktopNav.matches) return;
+    window.clearTimeout(closeTimer);
+    dropdown.open = true;
+  });
+
+  dropdown.addEventListener("mouseleave", () => {
+    if (!desktopNav.matches) return;
+    closeTimer = window.setTimeout(() => {
+      dropdown.open = false;
+    }, 140);
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (siteNav && !siteNav.contains(event.target)) {
+    closeNavDropdowns();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeNavDropdowns();
+  }
+});
 
 const revealTargets = document.querySelectorAll(
   ".section, .studio-marquee, .studio-metrics article, .feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .image-frame, .image-card, .contact-panel, .contact-form"
@@ -234,6 +279,8 @@ if (growthCanvas && !reducedMotion.matches) {
 
 document.querySelectorAll("[data-site-nav] a").forEach((link) => {
   link.addEventListener("click", () => {
+    closeNavDropdowns();
+
     if (siteNav && menuButton) {
       siteNav.classList.remove("is-open");
       menuButton.setAttribute("aria-expanded", "false");
