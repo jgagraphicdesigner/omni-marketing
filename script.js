@@ -4,6 +4,109 @@ const navDropdowns = document.querySelectorAll("[data-nav-dropdown]");
 const desktopNav = window.matchMedia("(min-width: 901px)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+const servicesMegaMarkup = `
+  <div class="mega-grid mega-services-grid">
+    <section class="mega-service-card">
+      <div class="mega-service-heading"><span class="mega-icon icon-strategy" aria-hidden="true"></span><h3>Strategy &amp; Positioning</h3></div>
+      <ul>
+        <li><a href="services.html#strategy">Growth Marketing</a></li>
+        <li><a href="services.html#strategy">Marketing Strategy</a></li>
+        <li><a href="services.html#strategy">Digital Strategy</a></li>
+        <li><a href="services.html#strategy">Brand Positioning</a></li>
+        <li><a href="services.html#strategy">Offer Positioning</a></li>
+        <li><a href="services.html#strategy">Messaging Strategy</a></li>
+      </ul>
+      <a class="mega-all-link" href="services.html#strategy">All Strategy Services</a>
+    </section>
+    <section class="mega-service-card">
+      <div class="mega-service-heading"><span class="mega-icon icon-acquisition" aria-hidden="true"></span><h3>Acquisition &amp; Media</h3></div>
+      <ul>
+        <li><a href="services.html#acquisition">Customer Acquisition</a></li>
+        <li><a href="services.html#acquisition">Lead Generation</a></li>
+        <li><a href="services.html#acquisition">Audience Growth</a></li>
+        <li><a href="services.html#acquisition">LinkedIn Growth Marketing</a></li>
+        <li><a href="services.html#acquisition">Social Media Marketing</a></li>
+        <li><a href="services.html#acquisition">Performance Marketing</a></li>
+      </ul>
+      <a class="mega-all-link" href="services.html#acquisition">All Acquisition Services</a>
+    </section>
+    <section class="mega-service-card">
+      <div class="mega-service-heading"><span class="mega-icon icon-automation" aria-hidden="true"></span><h3>CRM &amp; Automation</h3></div>
+      <ul>
+        <li><a href="services.html#automation">CRM Systems</a></li>
+        <li><a href="services.html#automation">Go High Level</a></li>
+        <li><a href="services.html#automation">Marketing Automation</a></li>
+        <li><a href="services.html#automation">Lead Nurture Systems</a></li>
+        <li><a href="services.html#automation">Email Marketing</a></li>
+        <li><a href="services.html#automation">Marketing Operations</a></li>
+      </ul>
+      <a class="mega-all-link" href="services.html#automation">All CRM Services</a>
+    </section>
+    <section class="mega-service-card">
+      <div class="mega-service-heading"><span class="mega-icon icon-conversion" aria-hidden="true"></span><h3>Funnels &amp; Conversion</h3></div>
+      <ul>
+        <li><a href="services.html#conversion">Funnel Strategy</a></li>
+        <li><a href="services.html#conversion">Funnel Optimisation</a></li>
+        <li><a href="services.html#conversion">Conversion Optimisation</a></li>
+        <li><a href="services.html#conversion">Conversion Systems</a></li>
+        <li><a href="services.html#conversion">Customer Journey Optimisation</a></li>
+        <li><a href="services.html#conversion">Copywriting</a></li>
+      </ul>
+      <a class="mega-all-link" href="services.html#conversion">All Funnel Services</a>
+    </section>
+    <section class="mega-service-card">
+      <div class="mega-service-heading"><span class="mega-icon icon-content" aria-hidden="true"></span><h3>Content &amp; Creative</h3></div>
+      <ul>
+        <li><a href="services.html#content">Content Strategy</a></li>
+        <li><a href="services.html#content">Creative Strategy</a></li>
+        <li><a href="services.html#content">Messaging Strategy</a></li>
+        <li><a href="services.html#content">Webinar Marketing</a></li>
+        <li><a href="services.html#content">Social Media Marketing</a></li>
+        <li><a href="services.html#content">Email Marketing</a></li>
+      </ul>
+      <a class="mega-all-link" href="services.html#content">All Content Services</a>
+    </section>
+    <section class="mega-service-card">
+      <div class="mega-service-heading"><span class="mega-icon icon-analytics" aria-hidden="true"></span><h3>Analytics &amp; Leadership</h3></div>
+      <ul>
+        <li><a href="services.html#analytics">Marketing Analytics</a></li>
+        <li><a href="services.html#analytics">KPI Reporting</a></li>
+        <li><a href="services.html#analytics">Campaign Strategy</a></li>
+        <li><a href="services.html#analytics">Team Leadership</a></li>
+        <li><a href="services.html#analytics">Marketing Operations</a></li>
+      </ul>
+      <a class="mega-all-link" href="services.html#analytics">All Analytics Services</a>
+    </section>
+  </div>
+`;
+
+document.querySelectorAll(".nav-services .nav-mega").forEach((panel) => {
+  panel.innerHTML = servicesMegaMarkup;
+  panel.setAttribute("aria-label", "Service categories");
+});
+
+if (siteNav && !siteNav.querySelector('a[href="blog.html"]')) {
+  const blogLink = document.createElement("a");
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  blogLink.className = currentPage === "blog.html" ? "nav-link is-active" : "nav-link";
+  blogLink.href = "blog.html";
+  blogLink.textContent = "Blog";
+
+  const resourcesMenu = siteNav.querySelector(".nav-resources");
+  siteNav.insertBefore(blogLink, resourcesMenu || siteNav.querySelector(".nav-cta"));
+}
+
+document.querySelectorAll('.footer-column[aria-label="Footer explore navigation"]').forEach((footerNav) => {
+  if (footerNav.querySelector('a[href="blog.html"]')) return;
+
+  const blogFooterLink = document.createElement("a");
+  blogFooterLink.href = "blog.html";
+  blogFooterLink.textContent = "Blog";
+
+  const caseStudiesLink = footerNav.querySelector('a[href="work.html"]');
+  footerNav.insertBefore(blogFooterLink, caseStudiesLink || null);
+});
+
 document.querySelectorAll("[data-logo-png]").forEach((logo) => {
   const pngSource = logo.getAttribute("data-logo-png");
   if (!pngSource) return;
@@ -66,7 +169,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  ".section, .studio-marquee, .studio-metrics article, .feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .image-frame, .image-card, .contact-panel, .contact-form"
+  ".section, .studio-marquee, .studio-metrics article, .feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .image-frame, .image-card, .contact-panel, .contact-form, .infographic-step, .image-placeholder, .blog-card"
 );
 
 if (revealTargets.length) {
@@ -91,7 +194,7 @@ if (revealTargets.length) {
 }
 
 const spotlightTargets = document.querySelectorAll(
-  ".feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .contact-panel, .contact-form, .cta-band"
+  ".feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .contact-panel, .contact-form, .cta-band, .infographic-step, .blog-card"
 );
 
 spotlightTargets.forEach((target) => {
