@@ -221,10 +221,17 @@ document.querySelectorAll("[data-logo-png]").forEach((logo) => {
   testImage.src = pngSource;
 });
 
+const setMobileMenuState = (isOpen) => {
+  if (!menuButton || !siteNav) return;
+  siteNav.classList.toggle("is-open", isOpen);
+  menuButton.classList.toggle("is-open", isOpen);
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+};
+
 if (menuButton && siteNav) {
   menuButton.addEventListener("click", () => {
-    const isOpen = siteNav.classList.toggle("is-open");
-    menuButton.setAttribute("aria-expanded", String(isOpen));
+    setMobileMenuState(!siteNav.classList.contains("is-open"));
   });
 }
 
@@ -263,11 +270,22 @@ document.addEventListener("click", (event) => {
   if (siteNav && !siteNav.contains(event.target)) {
     closeNavDropdowns();
   }
+
+  if (
+    siteNav &&
+    menuButton &&
+    siteNav.classList.contains("is-open") &&
+    !siteNav.contains(event.target) &&
+    !menuButton.contains(event.target)
+  ) {
+    setMobileMenuState(false);
+  }
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeNavDropdowns();
+    setMobileMenuState(false);
   }
 });
 
@@ -487,10 +505,7 @@ document.querySelectorAll("[data-site-nav] a").forEach((link) => {
   link.addEventListener("click", () => {
     closeNavDropdowns();
 
-    if (siteNav && menuButton) {
-      siteNav.classList.remove("is-open");
-      menuButton.setAttribute("aria-expanded", "false");
-    }
+    setMobileMenuState(false);
   });
 });
 
