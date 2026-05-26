@@ -5854,3 +5854,39 @@ main > .cta-band:last-child {
     font-size: 0.7rem;
   }
 }
+
+/* v34: site-wide HTML5 network background inspired by the requested canvas reference. */
+.omni-network-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.56;
+  mix-blend-mode: screen;
+  filter: saturate(1.14);
+}
+
+.page-shell {
+  isolation: isolate;
+}
+
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .omni-network-bg {
+    opacity: 0.42;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .omni-network-bg {
+    opacity: 0.22;
+    mix-blend-mode: normal;
+  }
+}

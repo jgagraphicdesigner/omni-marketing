@@ -4,6 +4,228 @@ let navDropdowns = document.querySelectorAll("[data-nav-dropdown]");
 const desktopNav = window.matchMedia("(min-width: 901px)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+const initOmniNetworkBackground = () => {
+  if (!document.body || !("requestAnimationFrame" in window)) return;
+
+  const canvas = document.createElement("canvas");
+  canvas.className = "omni-network-bg";
+  canvas.setAttribute("aria-hidden", "true");
+  document.body.prepend(canvas);
+
+  const context = canvas.getContext("2d", { alpha: true });
+  if (!context) {
+    canvas.remove();
+    return;
+  }
+
+  let width = 0;
+  let height = 0;
+  let animationFrame = 0;
+  let nodes = [];
+  let lastTime = 0;
+  const pointer = {
+    active: false,
+    x: window.innerWidth * 0.68,
+    y: window.innerHeight * 0.3,
+    targetX: window.innerWidth * 0.68,
+    targetY: window.innerHeight * 0.3,
+  };
+
+  const randomBetween = (min, max) => min + Math.random() * (max - min);
+
+  const createNode = () => ({
+    x: randomBetween(0, width),
+    y: randomBetween(0, height),
+    vx: randomBetween(-0.12, 0.12),
+    vy: randomBetween(-0.1, 0.1),
+    radius: randomBetween(1.1, 2.45),
+    phase: randomBetween(0, Math.PI * 2),
+    wave: randomBetween(0.0012, 0.0032),
+  });
+
+  const fitCanvas = () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = Math.max(1, Math.floor(width * dpr));
+    canvas.height = Math.max(1, Math.floor(height * dpr));
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const mobile = width < 700;
+    const targetCount = Math.min(
+      mobile ? 48 : 86,
+      Math.max(mobile ? 30 : 54, Math.floor((width * height) / (mobile ? 17000 : 15500)))
+    );
+
+    if (nodes.length > targetCount) {
+      nodes = nodes.slice(0, targetCount);
+    }
+
+    while (nodes.length < targetCount) {
+      nodes.push(createNode());
+    }
+
+    nodes.forEach((node) => {
+      node.x = Math.min(Math.max(node.x, 0), width);
+      node.y = Math.min(Math.max(node.y, 0), height);
+    });
+  };
+
+  const wrapNode = (node) => {
+    const margin = 34;
+
+    if (node.x < -margin) node.x = width + margin;
+    if (node.x > width + margin) node.x = -margin;
+    if (node.y < -margin) node.y = height + margin;
+    if (node.y > height + margin) node.y = -margin;
+  };
+
+  const drawAmbientLight = (time) => {
+    const sweepX = ((time * 0.018) % (width + 340)) - 170;
+    const sweep = context.createLinearGradient(sweepX - 180, 0, sweepX + 220, height);
+    sweep.addColorStop(0, "rgba(255, 226, 123, 0)");
+    sweep.addColorStop(0.5, "rgba(255, 226, 123, 0.075)");
+    sweep.addColorStop(1, "rgba(255, 226, 123, 0)");
+    context.fillStyle = sweep;
+    context.fillRect(0, 0, width, height);
+
+    const glow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, Math.max(width, height) * 0.38);
+    glow.addColorStop(0, pointer.active ? "rgba(255, 226, 123, 0.13)" : "rgba(255, 226, 123, 0.065)");
+    glow.addColorStop(0.38, "rgba(230, 185, 65, 0.035)");
+    glow.addColorStop(1, "rgba(230, 185, 65, 0)");
+    context.fillStyle = glow;
+    context.fillRect(0, 0, width, height);
+  };
+
+  const drawNetwork = (time = 0) => {
+    const delta = lastTime ? Math.min(2, (time - lastTime) / 16.67) : 1;
+    lastTime = time;
+
+    context.clearRect(0, 0, width, height);
+    context.save();
+    context.globalCompositeOperation = "screen";
+    drawAmbientLight(time);
+
+    pointer.x += (pointer.targetX - pointer.x) * 0.055;
+    pointer.y += (pointer.targetY - pointer.y) * 0.055;
+
+    nodes.forEach((node) => {
+      node.x += (node.vx + Math.sin(time * node.wave + node.phase) * 0.055) * delta;
+      node.y += (node.vy + Math.cos(time * node.wave + node.phase) * 0.045) * delta;
+
+      if (pointer.active) {
+        const dx = node.x - pointer.x;
+        const dy = node.y - pointer.y;
+        const distance = Math.hypot(dx, dy);
+        const pullRadius = width < 700 ? 118 : 170;
+
+        if (distance > 0 && distance < pullRadius) {
+          const force = (1 - distance / pullRadius) * 1.7;
+          node.x += (dx / distance) * force;
+          node.y += (dy / distance) * force;
+        }
+      }
+
+      wrapNode(node);
+    });
+
+    const lineRange = width < 700 ? 104 : 145;
+    const lineRangeSquared = lineRange * lineRange;
+
+    for (let index = 0; index < nodes.length; index += 1) {
+      for (let nextIndex = index + 1; nextIndex < nodes.length; nextIndex += 1) {
+        const current = nodes[index];
+        const next = nodes[nextIndex];
+        const dx = current.x - next.x;
+        const dy = current.y - next.y;
+        const distanceSquared = dx * dx + dy * dy;
+
+        if (distanceSquared >= lineRangeSquared) continue;
+
+        const strength = 1 - Math.sqrt(distanceSquared) / lineRange;
+        context.strokeStyle = `rgba(255, 226, 123, ${0.28 * strength * strength})`;
+        context.lineWidth = 0.65 + strength * 0.55;
+        context.beginPath();
+        context.moveTo(current.x, current.y);
+        context.lineTo(next.x, next.y);
+        context.stroke();
+      }
+    }
+
+    nodes.forEach((node, index) => {
+      const pulse = 0.75 + Math.sin(time * 0.002 + node.phase) * 0.25;
+      context.fillStyle = index % 5 === 0 ? `rgba(255, 255, 255, ${0.18 + pulse * 0.16})` : `rgba(255, 226, 123, ${0.32 + pulse * 0.3})`;
+      context.beginPath();
+      context.arc(node.x, node.y, node.radius * pulse, 0, Math.PI * 2);
+      context.fill();
+
+      if (index % 7 === 0) {
+        context.strokeStyle = `rgba(244, 200, 79, ${0.08 + pulse * 0.12})`;
+        context.lineWidth = 1;
+        context.beginPath();
+        context.arc(node.x, node.y, node.radius * 5.5, 0, Math.PI * 2);
+        context.stroke();
+      }
+    });
+
+    context.restore();
+
+    if (!reducedMotion.matches) {
+      animationFrame = requestAnimationFrame(drawNetwork);
+    }
+  };
+
+  const startAnimation = () => {
+    cancelAnimationFrame(animationFrame);
+    lastTime = 0;
+
+    if (reducedMotion.matches) {
+      drawNetwork(0);
+      return;
+    }
+
+    animationFrame = requestAnimationFrame(drawNetwork);
+  };
+
+  const setPointerTarget = (event) => {
+    pointer.active = true;
+    pointer.targetX = event.clientX;
+    pointer.targetY = event.clientY;
+  };
+
+  const relaxPointer = () => {
+    pointer.active = false;
+    pointer.targetX = width * 0.72;
+    pointer.targetY = height * 0.26;
+  };
+
+  fitCanvas();
+  startAnimation();
+
+  window.addEventListener("resize", () => {
+    fitCanvas();
+    startAnimation();
+  }, { passive: true });
+
+  window.addEventListener("pointermove", setPointerTarget, { passive: true });
+  window.addEventListener("blur", relaxPointer, { passive: true });
+  document.addEventListener("pointerleave", relaxPointer, { passive: true });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      cancelAnimationFrame(animationFrame);
+      return;
+    }
+
+    startAnimation();
+  });
+};
+
+initOmniNetworkBackground();
+
 const servicesMegaMarkup = `
   <div class="mega-grid mega-services-grid">
     <section class="mega-service-card">
