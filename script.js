@@ -322,3 +322,115 @@ if (contactForm && contactStatus) {
     contactStatus.className = "form-status is-success";
   });
 }
+
+const systemStageButtons = document.querySelectorAll("[data-system-step]");
+const systemLabelOutput = document.querySelector("[data-system-label-output]");
+const systemTitleOutput = document.querySelector("[data-system-title-output]");
+const systemCopyOutput = document.querySelector("[data-system-copy-output]");
+
+if (systemStageButtons.length && systemLabelOutput && systemTitleOutput && systemCopyOutput) {
+  let activeSystemIndex = 0;
+  let userSelectedSystem = false;
+
+  const activateSystemStage = (button, index) => {
+    systemStageButtons.forEach((stageButton) => {
+      stageButton.classList.toggle("is-active", stageButton === button);
+    });
+
+    activeSystemIndex = index;
+    systemLabelOutput.textContent = button.dataset.systemLabel || button.textContent.trim();
+    systemTitleOutput.textContent = button.dataset.systemTitle || "";
+    systemCopyOutput.textContent = button.dataset.systemCopy || "";
+  };
+
+  systemStageButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      userSelectedSystem = true;
+      activateSystemStage(button, index);
+    });
+  });
+
+  if (!reducedMotion.matches) {
+    window.setInterval(() => {
+      if (userSelectedSystem || document.hidden) return;
+      const nextIndex = (activeSystemIndex + 1) % systemStageButtons.length;
+      activateSystemStage(systemStageButtons[nextIndex], nextIndex);
+    }, 4200);
+  }
+}
+
+document.querySelectorAll("[data-tilt-surface]").forEach((surface) => {
+  surface.addEventListener("pointermove", (event) => {
+    const rect = surface.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    surface.style.setProperty("--tilt-x", `${(-y * 5).toFixed(2)}deg`);
+    surface.style.setProperty("--tilt-y", `${(x * 6).toFixed(2)}deg`);
+    surface.style.setProperty("--tilt-lift", "-8px");
+    surface.style.setProperty("--mouse-x", `${((x + 0.5) * 100).toFixed(1)}%`);
+    surface.style.setProperty("--mouse-y", `${((y + 0.5) * 100).toFixed(1)}%`);
+  });
+
+  surface.addEventListener("pointerleave", () => {
+    surface.style.setProperty("--tilt-x", "0deg");
+    surface.style.setProperty("--tilt-y", "0deg");
+    surface.style.setProperty("--tilt-lift", "0px");
+    surface.style.setProperty("--mouse-x", "50%");
+    surface.style.setProperty("--mouse-y", "50%");
+  });
+});
+
+document.querySelectorAll(".button, .nav-cta").forEach((button) => {
+  button.addEventListener("pointermove", (event) => {
+    const rect = button.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 10;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 8;
+
+    button.style.setProperty("--magnet-x", `${x.toFixed(1)}px`);
+    button.style.setProperty("--magnet-y", `${y.toFixed(1)}px`);
+  });
+
+  button.addEventListener("pointerleave", () => {
+    button.style.setProperty("--magnet-x", "0px");
+    button.style.setProperty("--magnet-y", "0px");
+  });
+});
+
+const metricNumbers = document.querySelectorAll(".studio-metrics strong");
+
+if (metricNumbers.length && "IntersectionObserver" in window && !reducedMotion.matches) {
+  const metricObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const target = entry.target;
+        const finalValue = Number.parseInt(target.textContent, 10);
+        if (!Number.isFinite(finalValue)) return;
+
+        const duration = 950;
+        const start = performance.now();
+
+        const update = (time) => {
+          const progress = Math.min(1, (time - start) / duration);
+          const eased = 1 - (1 - progress) ** 3;
+          target.textContent = String(Math.round(finalValue * eased));
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            target.textContent = String(finalValue);
+          }
+        };
+
+        target.textContent = "0";
+        requestAnimationFrame(update);
+        observer.unobserve(target);
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  metricNumbers.forEach((metric) => metricObserver.observe(metric));
+}
