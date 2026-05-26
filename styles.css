@@ -3631,3 +3631,70 @@ textarea {
     font-size: 1.65rem;
   }
 }
+
+@media (max-width: 900px) {
+  .site-header::before {
+    display: none;
+  }
+
+  .nav-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    height: auto;
+    min-height: 84px;
+    padding: 12px 0 10px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand img {
+    max-width: min(194px, calc(100vw - 110px));
+  }
+
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .site-nav {
+    position: static;
+    display: flex !important;
+    grid-column: 1 / -1;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 6px 0 2px;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .site-nav a {
+    flex: 0 0 auto;
+    padding: 9px 10px;
+    border: 1px solid rgba(244, 200, 79, 0.24);
+    border-radius: var(--radius);
+    background: rgba(0, 0, 0, 0.58);
+  }
+
+  .site-nav .nav-cta {
+    min-height: auto;
+    padding: 9px 11px !important;
+  }
+
+  .modern-hero {
+    padding-top: 172px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand img {
+    width: min(182px, calc(100vw - 112px));
+  }
+
+  .site-nav a {
+    font-size: 0.64rem;
+    padding-inline: 9px;
+  }
+}
