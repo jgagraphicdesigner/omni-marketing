@@ -4014,3 +4014,12 @@ textarea {
     padding-top: 212px;
   }
 }
+
+/* Keep the Omni mark unframed in the navigation and footer. */
+.brand img,
+.footer-logo {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
