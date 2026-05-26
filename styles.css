@@ -4438,124 +4438,17 @@ li,
 }
 
 .mega-icon::before,
-.mega-icon::after,
-.service-icon::before,
-.service-icon::after,
-.placeholder-icon::before,
-.placeholder-icon::after {
+.mega-icon::after {
   content: "";
   position: absolute;
 }
 
-.icon-strategy::before {
-  inset: 8px;
-  border: 2px solid currentColor;
-  border-radius: 50%;
-}
-
-.icon-strategy::after {
-  left: 50%;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-  transform: translate(-50%, -50%);
-}
-
-.icon-acquisition::before {
-  left: 8px;
-  top: 9px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-  box-shadow: 10px 5px 0 currentColor, 18px 15px 0 currentColor;
-}
-
-.icon-acquisition::after {
-  left: 9px;
-  top: 19px;
+.service-icon svg,
+.placeholder-icon svg {
   width: 20px;
-  height: 2px;
-  border-radius: 999px;
-  background: currentColor;
-  transform: rotate(25deg);
-}
-
-.icon-automation::before {
-  left: 8px;
-  right: 8px;
-  top: 9px;
-  bottom: 9px;
-  border: 2px solid currentColor;
-  border-radius: 5px;
-}
-
-.icon-automation::after {
-  left: 13px;
-  right: 13px;
-  top: 14px;
-  height: 2px;
-  background: currentColor;
-  box-shadow: 0 5px 0 currentColor, 0 10px 0 currentColor;
-}
-
-.icon-conversion::before {
-  left: 8px;
-  top: 9px;
-  width: 22px;
-  height: 10px;
-  border: 2px solid currentColor;
-  border-bottom: 0;
-  transform: skewX(-12deg);
-}
-
-.icon-conversion::after {
-  left: 15px;
-  top: 18px;
-  width: 8px;
-  height: 12px;
-  border-left: 2px solid currentColor;
-  border-right: 2px solid currentColor;
-}
-
-.icon-content::before {
-  left: 8px;
-  top: 17px;
-  width: 22px;
-  height: 4px;
-  border-radius: 999px;
-  background: currentColor;
-  transform: rotate(-35deg);
-}
-
-.icon-content::after {
-  right: 8px;
-  bottom: 8px;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(10deg);
-}
-
-.icon-analytics::before {
-  left: 9px;
-  bottom: 8px;
-  width: 4px;
-  height: 12px;
-  border-radius: 999px 999px 0 0;
-  background: currentColor;
-  box-shadow: 8px -5px 0 currentColor, 16px -10px 0 currentColor;
-}
-
-.icon-analytics::after {
-  left: 8px;
-  right: 8px;
-  bottom: 7px;
-  height: 2px;
-  background: currentColor;
+  height: 20px;
+  fill: #070707;
+  stroke: none;
 }
 
 .service-overview {
