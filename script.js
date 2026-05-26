@@ -7,7 +7,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const servicesMegaMarkup = `
   <div class="mega-grid mega-services-grid">
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon icon-strategy" aria-hidden="true"></span><h3>Strategy &amp; Positioning</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="2"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path></svg></span><h3>Strategy &amp; Positioning</h3></div>
       <ul>
         <li><a href="services.html#strategy">Growth Marketing</a></li>
         <li><a href="services.html#strategy">Marketing Strategy</a></li>
@@ -19,7 +19,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#strategy">All Strategy Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon icon-acquisition" aria-hidden="true"></span><h3>Acquisition &amp; Media</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path><path d="M3 21v-2a4 4 0 0 1 4-4h1"></path><path d="M15 8l5 5-5 5"></path><path d="M10 13h10"></path></svg></span><h3>Acquisition &amp; Media</h3></div>
       <ul>
         <li><a href="services.html#acquisition">Customer Acquisition</a></li>
         <li><a href="services.html#acquisition">Lead Generation</a></li>
@@ -31,7 +31,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#acquisition">All Acquisition Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon icon-automation" aria-hidden="true"></span><h3>CRM &amp; Automation</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="7" ry="3"></ellipse><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5"></path><path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"></path></svg></span><h3>CRM &amp; Automation</h3></div>
       <ul>
         <li><a href="services.html#automation">CRM Systems</a></li>
         <li><a href="services.html#automation">Go High Level</a></li>
@@ -43,7 +43,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#automation">All CRM Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon icon-conversion" aria-hidden="true"></span><h3>Funnels &amp; Conversion</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16l-6 7v5l-4 2v-7L4 5Z"></path><path d="M9 5h6"></path></svg></span><h3>Funnels &amp; Conversion</h3></div>
       <ul>
         <li><a href="services.html#conversion">Funnel Strategy</a></li>
         <li><a href="services.html#conversion">Funnel Optimisation</a></li>
@@ -55,7 +55,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#conversion">All Funnel Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon icon-content" aria-hidden="true"></span><h3>Content &amp; Creative</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z"></path><path d="M14 7l3 3"></path><path d="M4 20h16"></path></svg></span><h3>Content &amp; Creative</h3></div>
       <ul>
         <li><a href="services.html#content">Content Strategy</a></li>
         <li><a href="services.html#content">Creative Strategy</a></li>
@@ -67,7 +67,7 @@ const servicesMegaMarkup = `
       <a class="mega-all-link" href="services.html#content">All Content Services</a>
     </section>
     <section class="mega-service-card">
-      <div class="mega-service-heading"><span class="mega-icon icon-analytics" aria-hidden="true"></span><h3>Analytics &amp; Leadership</h3></div>
+      <div class="mega-service-heading"><span class="mega-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M8 16v-5"></path><path d="M12 16V8"></path><path d="M16 16v-3"></path><path d="M20 16V6"></path></svg></span><h3>Analytics &amp; Leadership</h3></div>
       <ul>
         <li><a href="services.html#analytics">Marketing Analytics</a></li>
         <li><a href="services.html#analytics">KPI Reporting</a></li>
