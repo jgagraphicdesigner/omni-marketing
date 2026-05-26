@@ -5450,3 +5450,14 @@ li,
     max-width: 100%;
   }
 }
+
+/* v29: add breathing room between the last CTA panel and the footer. */
+main > .cta-band:last-child {
+  margin-bottom: clamp(72px, 7vw, 124px);
+}
+
+@media (max-width: 640px) {
+  main > .cta-band:last-child {
+    margin-bottom: 64px;
+  }
+}
