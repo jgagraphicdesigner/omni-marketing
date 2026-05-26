@@ -382,7 +382,7 @@ document.querySelectorAll(".footer-wrap").forEach((footerWrap) => {
   footerWrap.innerHTML = `
     <section class="footer-brand-block">
       <a class="footer-brand" href="index.html" aria-label="Omni Marketing home">
-        <img class="footer-logo" src="assets/omni-logo.svg" data-logo-png="assets/omni-logo-black.png" alt="Omni Marketing Online">
+        <img class="footer-logo" src="assets/omni-logo.svg" alt="Omni Marketing Online">
       </a>
       <p>Omni Marketing Online</p>
       <p>Creative Content Solutions for connected growth systems.</p>
@@ -431,17 +431,6 @@ document.querySelectorAll(".footer-wrap").forEach((footerWrap) => {
 });
 
 navDropdowns = document.querySelectorAll("[data-nav-dropdown]");
-
-document.querySelectorAll("[data-logo-png]").forEach((logo) => {
-  const pngSource = logo.getAttribute("data-logo-png");
-  if (!pngSource) return;
-
-  const testImage = new Image();
-  testImage.onload = () => {
-    logo.src = pngSource;
-  };
-  testImage.src = pngSource;
-});
 
 const setMobileMenuState = (isOpen) => {
   if (!menuButton || !siteNav) return;
