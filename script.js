@@ -1,6 +1,6 @@
 const menuButton = document.querySelector("[data-menu-toggle]");
 const siteNav = document.querySelector("[data-site-nav]");
-const navDropdowns = document.querySelectorAll("[data-nav-dropdown]");
+let navDropdowns = document.querySelectorAll("[data-nav-dropdown]");
 const desktopNav = window.matchMedia("(min-width: 901px)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -85,15 +85,64 @@ document.querySelectorAll(".nav-services .nav-mega").forEach((panel) => {
   panel.setAttribute("aria-label", "Service categories");
 });
 
+const getCurrentPage = () => window.location.pathname.split("/").pop() || "index.html";
+
+if (siteNav) {
+  const currentPage = getCurrentPage();
+  const directNavItems = Array.from(siteNav.children);
+  const homeLink = directNavItems.find((item) => item.matches('a[href="index.html"]'));
+  const aboutLink = directNavItems.find((item) => item.matches('a[href="about.html"]'));
+
+  if (homeLink) {
+    homeLink.remove();
+  }
+
+  if (aboutLink) {
+    const aboutDropdown = document.createElement("details");
+    aboutDropdown.className = "nav-dropdown nav-about";
+    aboutDropdown.setAttribute("data-nav-dropdown", "");
+    aboutDropdown.innerHTML = `
+      <summary class="nav-link${currentPage === "about.html" ? " is-active" : ""}">About</summary>
+      <div class="nav-panel nav-small-menu">
+        <a href="about.html"><strong>About Omni</strong><span>How we connect strategy, systems and content.</span></a>
+        <a href="about.html#approach"><strong>Approach</strong><span>Clearer offers, cleaner journeys and sharper reporting.</span></a>
+        <a href="contact.html"><strong>Start a Conversation</strong><span>Talk through the next growth move.</span></a>
+      </div>
+    `;
+    aboutLink.replaceWith(aboutDropdown);
+  }
+}
+
 if (siteNav && !siteNav.querySelector('a[href="blog.html"]')) {
   const blogLink = document.createElement("a");
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const currentPage = getCurrentPage();
   blogLink.className = currentPage === "blog.html" ? "nav-link is-active" : "nav-link";
   blogLink.href = "blog.html";
   blogLink.textContent = "Blog";
 
   const resourcesMenu = siteNav.querySelector(".nav-resources");
   siteNav.insertBefore(blogLink, resourcesMenu || siteNav.querySelector(".nav-cta"));
+}
+
+if (siteNav && !siteNav.querySelector(".nav-search")) {
+  const searchDropdown = document.createElement("details");
+  searchDropdown.className = "nav-dropdown nav-search";
+  searchDropdown.setAttribute("data-nav-dropdown", "");
+  searchDropdown.innerHTML = `
+    <summary class="nav-search-button" aria-label="Search Omni Marketing">
+      <span class="sr-only">Search</span>
+    </summary>
+    <div class="nav-panel nav-search-panel">
+      <form class="site-search" role="search" action="blog.html">
+        <label for="site-search-input">Search Omni</label>
+        <div class="site-search-row">
+          <input id="site-search-input" name="q" type="search" placeholder="Services, blog, resources">
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+  `;
+  siteNav.appendChild(searchDropdown);
 }
 
 document.querySelectorAll('.footer-column[aria-label="Footer explore navigation"]').forEach((footerNav) => {
@@ -106,6 +155,49 @@ document.querySelectorAll('.footer-column[aria-label="Footer explore navigation"
   const caseStudiesLink = footerNav.querySelector('a[href="work.html"]');
   footerNav.insertBefore(blogFooterLink, caseStudiesLink || null);
 });
+
+document.querySelectorAll(".footer-wrap").forEach((footerWrap) => {
+  footerWrap.innerHTML = `
+    <section class="footer-brand-block">
+      <a class="footer-brand" href="index.html" aria-label="Omni Marketing home">
+        <img class="footer-logo" src="assets/omni-logo.svg" data-logo-png="assets/omni-logo-black.png" alt="Omni Marketing Online">
+      </a>
+      <p>Omni Marketing Online</p>
+      <p>Creative Content Solutions for connected growth systems.</p>
+    </section>
+    <nav class="footer-column" aria-label="Footer page navigation">
+      <h2>Pages</h2>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="contact.html">Get a Quote</a>
+    </nav>
+    <nav class="footer-column" aria-label="Footer service navigation">
+      <h2>Services</h2>
+      <a href="services.html#strategy">Strategy &amp; Positioning</a>
+      <a href="services.html#acquisition">Acquisition &amp; Media</a>
+      <a href="services.html#automation">CRM &amp; Automation</a>
+      <a href="services.html#conversion">Funnels &amp; Conversion</a>
+      <a href="services.html#content">Content &amp; Creative</a>
+      <a href="services.html#analytics">Analytics &amp; Leadership</a>
+    </nav>
+    <nav class="footer-column" aria-label="Footer resource navigation">
+      <h2>Resources</h2>
+      <a href="work.html">Case Studies</a>
+      <a href="white-papers.html">White Papers</a>
+      <a href="blog.html">Blog Articles</a>
+      <a href="contact.html">Newsletter</a>
+    </nav>
+    <section class="footer-column footer-contact">
+      <h2>Contact</h2>
+      <a href="mailto:hello@omnimarketingonline.com">hello@omnimarketingonline.com</a>
+      <a href="contact.html">Start a conversation</a>
+    </section>
+  `;
+});
+
+navDropdowns = document.querySelectorAll("[data-nav-dropdown]");
 
 document.querySelectorAll("[data-logo-png]").forEach((logo) => {
   const pngSource = logo.getAttribute("data-logo-png");

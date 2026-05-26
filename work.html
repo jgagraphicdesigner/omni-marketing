@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Case Studies | Omni Marketing</title>
     <meta name="description" content="Explore Omni Marketing case studies and examples across CRM, funnels, acquisition, webinars, content and reporting.">
-    <link rel="stylesheet" href="styles.css?v=26">
+    <link rel="stylesheet" href="styles.css?v=27">
   </head>
   <body>
     <div class="page-shell">
@@ -18,8 +18,14 @@
             <span></span><span></span><span></span>
           </button>
           <nav class="site-nav" aria-label="Primary navigation" data-site-nav>
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link" href="about.html">About Us</a>
+            <details class="nav-dropdown nav-about" data-nav-dropdown>
+              <summary class="nav-link">About</summary>
+              <div class="nav-panel nav-small-menu">
+                <a href="about.html"><strong>About Omni</strong><span>How we connect strategy, systems and content.</span></a>
+                <a href="about.html#approach"><strong>Approach</strong><span>Clearer offers, cleaner journeys and sharper reporting.</span></a>
+                <a href="contact.html"><strong>Start a Conversation</strong><span>Talk through the next growth move.</span></a>
+              </div>
+            </details>
             <details class="nav-dropdown nav-services" data-nav-dropdown>
               <summary class="nav-link">Services</summary>
               <div class="nav-panel nav-mega">
@@ -85,6 +91,18 @@
             </details>
             <a class="nav-link" href="contact.html">Contact Us</a>
             <a class="nav-cta" href="contact.html">Get a Quote</a>
+            <details class="nav-dropdown nav-search" data-nav-dropdown>
+              <summary class="nav-search-button" aria-label="Search Omni Marketing"><span class="sr-only">Search</span></summary>
+              <div class="nav-panel nav-search-panel">
+                <form class="site-search" role="search" action="blog.html">
+                  <label for="site-search-work">Search Omni</label>
+                  <div class="site-search-row">
+                    <input id="site-search-work" name="q" type="search" placeholder="Services, blog, resources">
+                    <button type="submit">Search</button>
+                  </div>
+                </form>
+              </div>
+            </details>
           </nav>
         </div>
       </header>
@@ -172,7 +190,7 @@
         </section>
       </main>
 
-      <footer class="site-footer">
+      <footer class="site-footer" id="footer">
         <div class="footer-wrap">
           <section class="footer-brand-block">
             <a class="footer-brand" href="index.html" aria-label="Omni Marketing home">
@@ -181,21 +199,29 @@
             <p>Omni Marketing Online</p>
             <p>Creative Content Solutions for connected growth systems.</p>
           </section>
-          <nav class="footer-column" aria-label="Footer explore navigation">
-            <h2>Explore</h2>
-            <a href="index.html">Home</a>
-            <a href="about.html">About us</a>
+          <nav class="footer-column" aria-label="Footer page navigation">
+            <h2>Pages</h2>
+            <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="blog.html">Blog</a>
-            <a href="work.html">Case Studies</a>
-            <a href="white-papers.html">White Papers</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="contact.html">Get a Quote</a>
           </nav>
           <nav class="footer-column" aria-label="Footer service navigation">
             <h2>Services</h2>
-            <a href="services.html">Growth Strategy</a>
-            <a href="services.html">CRM Systems</a>
-            <a href="services.html">Automation</a>
-            <a href="services.html">Conversion</a>
+            <a href="services.html#strategy">Strategy &amp; Positioning</a>
+            <a href="services.html#acquisition">Acquisition &amp; Media</a>
+            <a href="services.html#automation">CRM &amp; Automation</a>
+            <a href="services.html#conversion">Funnels &amp; Conversion</a>
+            <a href="services.html#content">Content &amp; Creative</a>
+            <a href="services.html#analytics">Analytics &amp; Leadership</a>
+          </nav>
+          <nav class="footer-column" aria-label="Footer resource navigation">
+            <h2>Resources</h2>
+            <a href="work.html">Case Studies</a>
+            <a href="white-papers.html">White Papers</a>
+            <a href="blog.html">Blog Articles</a>
+            <a href="contact.html">Newsletter</a>
           </nav>
           <section class="footer-column footer-contact">
             <h2>Contact</h2>
@@ -205,10 +231,10 @@
         </div>
         <div class="footer-bottom">
           <span>&copy; 2026 Omni Marketing Online. All rights reserved.</span>
-          <span>Growth Marketing &middot; CRM &middot; Funnel Strategy</span>
+          <span>About &middot; Services &middot; Blog &middot; Resources &middot; Contact Us</span>
         </div>
       </footer>
     </div>
-    <script src="script.js?v=25"></script>
+    <script src="script.js?v=27"></script>
   </body>
 </html>
