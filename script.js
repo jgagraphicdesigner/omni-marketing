@@ -382,7 +382,7 @@ document.querySelectorAll(".footer-wrap").forEach((footerWrap) => {
   footerWrap.innerHTML = `
     <section class="footer-brand-block">
       <a class="footer-brand" href="index.html" aria-label="Omni Marketing home">
-        <img class="footer-logo" src="assets/omni-logo.svg" alt="Omni Marketing Online">
+        <img class="footer-logo" src="assets/omni-logo.png" alt="Omni Marketing Online">
       </a>
       <p>Omni Marketing Online</p>
       <p>Creative Content Solutions for connected growth systems.</p>
