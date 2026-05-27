@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Services | Omni Marketing</title>
     <meta name="description" content="Omni Marketing services include growth strategy, customer acquisition, CRM systems, funnels, automation, content, analytics and conversion optimisation.">
-    <link rel="stylesheet" href="styles.css?v=38">
+    <link rel="stylesheet" href="styles.css?v=39">
     <link rel="icon" href="assets/omni-logo.svg" type="image/svg+xml">
   </head>
   <body>
@@ -109,14 +109,107 @@
       </header>
 
       <main>
-        <section class="section page-hero">
-          <h1>Services that turn attention into pipeline</h1>
-          <p>Omni covers the strategy, systems and execution needed to build a healthier customer journey from first touch through nurture, conversion and reporting.</p>
+        <section class="section page-hero services-hero">
+          <div class="services-hero-copy">
+            <span class="small-label">Integrated services</span>
+            <h1>Full-service growth systems for every stage of the customer journey.</h1>
+            <p>Omni connects strategy, acquisition, CRM, automation, content and conversion into one operating model your team can actually run.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="contact.html">Start a project</a>
+              <a class="button" href="#service-catalog">Explore services</a>
+            </div>
+          </div>
+          <figure class="services-hero-system" data-tilt-surface aria-label="Animated Omni growth system map">
+            <canvas data-growth-canvas aria-hidden="true"></canvas>
+            <div class="hero-system-card">
+              <span>Customer Journey</span>
+              <strong>Position, acquire, nurture, convert and improve.</strong>
+            </div>
+            <div class="journey-orbit" aria-hidden="true">
+              <span class="orbit-node orbit-one">Attract</span>
+              <span class="orbit-node orbit-two">Engage</span>
+              <span class="orbit-node orbit-three">Convert</span>
+              <span class="orbit-node orbit-four">Report</span>
+            </div>
+          </figure>
         </section>
 
-        <section class="section tight service-overview" aria-label="Omni service architecture">
+        <section class="section service-journey-section" aria-label="Omni customer journey map">
           <div class="section-intro">
-            <span class="small-label">Service architecture</span>
+            <span class="small-label">Customer journey</span>
+            <h2>Where your customer is, there Omni is.</h2>
+            <p>A connected service model gives each stage a job: attract the right audience, engage them with better messaging, validate trust, convert cleanly and keep improving after the sale.</p>
+          </div>
+          <div class="customer-journey" data-journey>
+            <div class="journey-steps" aria-label="Customer journey stages">
+              <button class="journey-step is-active" type="button" data-journey-step data-journey-title="Attract the right market" data-journey-copy="Use positioning, audience growth, LinkedIn, social and campaign strategy to bring the right people into the journey." data-journey-services="Growth marketing, audience growth, lead generation">
+                <span>01</span>
+                <strong>Attract</strong>
+                <small>Audience and awareness</small>
+              </button>
+              <button class="journey-step" type="button" data-journey-step data-journey-title="Engage with sharper messaging" data-journey-copy="Turn attention into intent with content strategy, creative direction, email, webinars and messaging that makes the offer easier to understand." data-journey-services="Content strategy, messaging, webinar marketing">
+                <span>02</span>
+                <strong>Engage</strong>
+                <small>Message and content</small>
+              </button>
+              <button class="journey-step" type="button" data-journey-step data-journey-title="Validate trust and fit" data-journey-copy="Build proof, nurture paths, CRM structure and reporting so prospects can see why the next step makes sense." data-journey-services="CRM systems, lead nurture, KPI reporting">
+                <span>03</span>
+                <strong>Validate</strong>
+                <small>Proof and nurture</small>
+              </button>
+              <button class="journey-step" type="button" data-journey-step data-journey-title="Convert with less friction" data-journey-copy="Improve landing pages, copy, funnels, customer journey logic and conversion systems around the moments that move pipeline." data-journey-services="Funnel strategy, copywriting, conversion optimisation">
+                <span>04</span>
+                <strong>Convert</strong>
+                <small>Funnel and action</small>
+              </button>
+              <button class="journey-step" type="button" data-journey-step data-journey-title="Re-engage and improve" data-journey-copy="Keep campaigns, CRM, email, automation and analytics connected so customer value compounds after the first conversion." data-journey-services="Marketing automation, email marketing, analytics">
+                <span>05</span>
+                <strong>Improve</strong>
+                <small>Retention and reporting</small>
+              </button>
+            </div>
+            <article class="journey-output-card" aria-live="polite">
+              <span class="small-label">Active stage</span>
+              <h3 data-journey-title>Attract the right market</h3>
+              <p data-journey-copy>Use positioning, audience growth, LinkedIn, social and campaign strategy to bring the right people into the journey.</p>
+              <div class="journey-service-tags" data-journey-services>
+                <span>Growth marketing</span>
+                <span>Audience growth</span>
+                <span>Lead generation</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section tight services-proof-stack" aria-label="Integrated digital marketing advantages">
+          <article class="proof-panel proof-panel-wide">
+            <div>
+              <span class="service-icon icon-strategy" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13l-1 5.5L5.5 14l5.5-1 1-5.5 4.5 1.5z"></path></svg></span>
+              <h2>Integrated digital marketing solutions</h2>
+              <p>Strategy, media, content, CRM and reporting work best when they are planned as one system, not as disconnected channel tasks.</p>
+            </div>
+            <div class="proof-visual-grid" aria-hidden="true">
+              <span>Strategy</span>
+              <span>Campaigns</span>
+              <span>CRM</span>
+              <span>Reporting</span>
+            </div>
+          </article>
+          <article class="proof-panel">
+            <span class="service-icon icon-acquisition" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-13a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"></path></svg></span>
+            <h2>Deep expertise across marketing disciplines</h2>
+            <p>Omni covers the planning, execution and operational details that connect lead generation to the sales follow-up.</p>
+          </article>
+          <article class="proof-panel">
+            <span class="service-icon icon-analytics" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path></svg></span>
+            <h2>Growth decisions backed by reporting</h2>
+            <p>KPI reporting, marketing analytics and journey insight keep the operating model improving after launch.</p>
+          </article>
+        </section>
+
+        <section class="section tight services-catalog-section" id="service-catalog">
+          <div class="section-intro">
+            <span class="small-label">Integrated digital marketing services</span>
             <h2>Six connected disciplines, one growth operating system.</h2>
             <p>Each service group maps to a practical part of the customer journey, from positioning and demand creation through CRM, nurture, conversion and reporting.</p>
             <div class="service-stat-grid" aria-label="Service coverage highlights">
@@ -125,44 +218,6 @@
               <article><strong>1</strong><span>connected operating map</span></article>
             </div>
           </div>
-          <figure class="image-placeholder service-photo-placeholder" aria-label="Image placeholder">
-            <span class="placeholder-icon icon-analytics" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path></svg></span>
-            <strong>Image placeholder</strong>
-            <p>Workshop, dashboard or client campaign visual.</p>
-          </figure>
-        </section>
-
-        <section class="section tight service-infographic-section" aria-label="Growth system infographic">
-          <div class="infographic-flow">
-            <article class="infographic-step">
-              <span class="service-icon icon-strategy" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13l-1 5.5L5.5 14l5.5-1 1-5.5 4.5 1.5z"></path></svg></span>
-              <strong>Position</strong>
-              <p>Clarify the market, message and offer.</p>
-            </article>
-            <article class="infographic-step">
-              <span class="service-icon icon-acquisition" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-13a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"></path></svg></span>
-              <strong>Acquire</strong>
-              <p>Build audience demand across channels.</p>
-            </article>
-            <article class="infographic-step">
-              <span class="service-icon icon-automation" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path></svg></span>
-              <strong>Nurture</strong>
-              <p>Route leads through CRM and automation.</p>
-            </article>
-            <article class="infographic-step">
-              <span class="service-icon icon-conversion" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path></svg></span>
-              <strong>Convert</strong>
-              <p>Optimise funnels, copy and journeys.</p>
-            </article>
-            <article class="infographic-step">
-              <span class="service-icon icon-analytics" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path></svg></span>
-              <strong>Improve</strong>
-              <p>Use KPI reporting to compound results.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section tight">
           <div class="services-grid service-category-grid">
             <article class="service-cluster" id="strategy">
               <span class="service-icon icon-strategy" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13l-1 5.5L5.5 14l5.5-1 1-5.5 4.5 1.5z"></path></svg></span>
@@ -177,6 +232,7 @@
                 <li>Offer positioning</li>
                 <li>Messaging strategy</li>
               </ul>
+              <a class="service-card-link" href="contact.html">Discuss strategy</a>
             </article>
             <article class="service-cluster" id="acquisition">
               <span class="service-icon icon-acquisition" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-13a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"></path></svg></span>
@@ -192,6 +248,7 @@
                 <li>Performance marketing</li>
                 <li>Webinar marketing</li>
               </ul>
+              <a class="service-card-link" href="contact.html">Discuss acquisition</a>
             </article>
             <article class="service-cluster" id="automation">
               <span class="service-icon icon-automation" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path></svg></span>
@@ -206,6 +263,7 @@
                 <li>Email marketing</li>
                 <li>Marketing operations</li>
               </ul>
+              <a class="service-card-link" href="contact.html">Discuss CRM</a>
             </article>
             <article class="service-cluster" id="conversion">
               <span class="service-icon icon-conversion" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path></svg></span>
@@ -220,6 +278,7 @@
                 <li>Customer journey optimisation</li>
                 <li>Copywriting</li>
               </ul>
+              <a class="service-card-link" href="contact.html">Discuss conversion</a>
             </article>
             <article class="service-cluster" id="content">
               <span class="service-icon icon-content" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg></span>
@@ -234,6 +293,7 @@
                 <li>Social media marketing</li>
                 <li>Email marketing</li>
               </ul>
+              <a class="service-card-link" href="contact.html">Discuss content</a>
             </article>
             <article class="service-cluster" id="analytics">
               <span class="service-icon icon-analytics" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path></svg></span>
@@ -247,25 +307,33 @@
                 <li>Team leadership</li>
                 <li>Marketing operations</li>
               </ul>
+              <a class="service-card-link" href="contact.html">Discuss analytics</a>
             </article>
           </div>
         </section>
 
-        <section class="section tight placeholder-gallery" aria-label="Future image placeholders">
-          <figure class="image-placeholder">
-            <span class="placeholder-icon icon-content" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg></span>
-            <strong>Campaign image placeholder</strong>
-            <p>Social, email, webinar and creative content examples.</p>
-          </figure>
-          <figure class="image-placeholder">
-            <span class="placeholder-icon icon-automation" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path></svg></span>
-            <strong>CRM image placeholder</strong>
-            <p>Go High Level workflow, lead nurture map or reporting screen.</p>
-          </figure>
+        <section class="section tight service-resource-teasers" aria-label="Service resource examples">
+          <article class="resource-teaser">
+            <span class="small-label">Case studies</span>
+            <h2>See how connected journeys can be rebuilt.</h2>
+            <p>Review examples for CRM cleanup, webinar demand, LinkedIn growth and conversion sprints.</p>
+            <a class="button" href="work.html">View case studies</a>
+          </article>
+          <article class="resource-teaser">
+            <span class="small-label">White papers</span>
+            <h2>Use practical guides before you build.</h2>
+            <p>Plan acquisition, CRM readiness, funnel optimisation and campaign launches with sharper operating maps.</p>
+            <a class="button" href="white-papers.html">View white papers</a>
+          </article>
         </section>
 
         <section class="dark-band">
           <div class="section">
+            <div class="section-intro process-intro">
+              <span class="small-label">How the work moves</span>
+              <h2>Audit, map, build and optimise.</h2>
+              <p>Omni turns the service menu into a practical sequence, so the work starts with clarity and ends with a measurable system.</p>
+            </div>
             <div class="process">
               <article>
                 <span>1</span>
@@ -342,6 +410,6 @@
         </div>
       </footer>
     </div>
-    <script src="script.js?v=36"></script>
+    <script src="script.js?v=39"></script>
   </body>
 </html>

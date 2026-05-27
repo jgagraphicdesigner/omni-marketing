@@ -501,7 +501,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 const revealTargets = document.querySelectorAll(
-  ".section, .studio-marquee, .studio-metrics article, .feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .image-frame, .image-card, .contact-panel, .contact-form, .infographic-step, .image-placeholder, .blog-card"
+  ".section, .studio-marquee, .studio-metrics article, .feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .image-frame, .image-card, .contact-panel, .contact-form, .infographic-step, .image-placeholder, .blog-card, .services-hero-system, .journey-step, .journey-output-card, .proof-panel, .resource-teaser"
 );
 
 if (revealTargets.length) {
@@ -526,7 +526,7 @@ if (revealTargets.length) {
 }
 
 const spotlightTargets = document.querySelectorAll(
-  ".feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .contact-panel, .contact-form, .cta-band, .infographic-step, .blog-card"
+  ".feature-list article, .service-strip article, .service-cluster, .case-card, .value-card, .contact-panel, .contact-form, .cta-band, .infographic-step, .blog-card, .journey-step, .journey-output-card, .proof-panel, .resource-teaser"
 );
 
 spotlightTargets.forEach((target) => {
@@ -537,6 +537,63 @@ spotlightTargets.forEach((target) => {
     target.style.setProperty("--mouse-x", `${x.toFixed(1)}%`);
     target.style.setProperty("--mouse-y", `${y.toFixed(1)}%`);
   });
+});
+
+const journeyBlocks = document.querySelectorAll("[data-journey]");
+
+journeyBlocks.forEach((journeyBlock) => {
+  const steps = Array.from(journeyBlock.querySelectorAll("[data-journey-step]"));
+  const titleOutput = journeyBlock.querySelector("[data-journey-title]");
+  const copyOutput = journeyBlock.querySelector("[data-journey-copy]");
+  const servicesOutput = journeyBlock.querySelector("[data-journey-services]:not([data-journey-step])");
+
+  if (!steps.length || !titleOutput || !copyOutput || !servicesOutput) return;
+
+  let activeIndex = Math.max(0, steps.findIndex((step) => step.classList.contains("is-active")));
+  let userInteracted = false;
+
+  const activateJourneyStep = (index) => {
+    const activeStep = steps[index];
+    if (!activeStep) return;
+
+    steps.forEach((step, stepIndex) => {
+      const isActive = stepIndex === index;
+      step.classList.toggle("is-active", isActive);
+      step.setAttribute("aria-pressed", String(isActive));
+    });
+
+    activeIndex = index;
+    titleOutput.textContent = activeStep.dataset.journeyTitle || activeStep.querySelector("strong")?.textContent || "";
+    copyOutput.textContent = activeStep.dataset.journeyCopy || "";
+    servicesOutput.replaceChildren(
+      ...String(activeStep.dataset.journeyServices || "")
+        .split(",")
+        .map((service) => service.trim())
+        .filter(Boolean)
+        .map((service) => {
+          const tag = document.createElement("span");
+          tag.textContent = service;
+          return tag;
+        })
+    );
+  };
+
+  steps.forEach((step, index) => {
+    step.setAttribute("aria-pressed", String(index === activeIndex));
+    step.addEventListener("click", () => {
+      userInteracted = true;
+      activateJourneyStep(index);
+    });
+  });
+
+  activateJourneyStep(activeIndex);
+
+  if (!reducedMotion.matches) {
+    window.setInterval(() => {
+      if (document.hidden || userInteracted) return;
+      activateJourneyStep((activeIndex + 1) % steps.length);
+    }, 4400);
+  }
 });
 
 const growthCanvas = document.querySelector("[data-growth-canvas]");
